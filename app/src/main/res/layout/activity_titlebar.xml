@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tool_bar"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="#FC6F68">
+
+    <TextView
+        android:id="@+id/top_back"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:drawableLeft="@mipmap/title_back"
+        android:drawablePadding="5dp"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="10dp"
+        android:text="返回"
+        android:textColor="#FFFFFFFF"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="@string/app_name"
+        android:textColor="#FFFFFFFF"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:id="@+id/right_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="确认"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+    <ImageButton
+        android:id="@+id/image_btn"
+        android:layout_width="48dp"
+        android:layout_toLeftOf="@id/right_text"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="48dp"
+        android:layout_toLeftOf="@+id/image_btn"
+        android:layout_height="match_parent" />
+</RelativeLayout>
