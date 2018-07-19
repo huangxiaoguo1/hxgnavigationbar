@@ -41,9 +41,19 @@ public abstract class AbsNavgationBar<T extends AbsNavgationBar.Builder.AbsNavig
             throw new IllegalArgumentException("请先传入布局—>setContentView方法");
         }
         if (mParams.mParent == null) {
-            //获取Activity跟布局,(AppCompatActivity)
-            ViewGroup activityRoot = ((Activity) mParams.mContext)
-                    .findViewById(android.R.id.content);
+            /**
+             * 获取Activity跟布局,(AppCompatActivity)
+             */
+            //拿的是跟自己最近的那个FrameLayout
+            //ViewGroup activityRoot = ((Activity) mParams.mContext)
+            // .findViewById(android.R.id.content);
+            /**
+             * getDecorView()更布局FrameLayout
+             * android系统跟布局顺序
+             * window->FrameLayout->LinearLayout->FrameLayout->我们的布局
+             */
+            ViewGroup activityRoot = (ViewGroup) ((Activity) mParams.mContext).getWindow().getDecorView();
+            //这里activityRoot.getChildAt(0)是LinearLayout
             mParams.mParent = (ViewGroup) activityRoot.getChildAt(0);
         }
         if (mParams.mParent == null) {

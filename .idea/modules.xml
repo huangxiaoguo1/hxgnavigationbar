@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HxgNavigationBar.iml" filepath="$PROJECT_DIR$/HxgNavigationBar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HxgNavigationbar.iml" filepath="$PROJECT_DIR$/HxgNavigationbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_hxgnavbar/lib_hxgnavbar.iml" filepath="$PROJECT_DIR$/lib_hxgnavbar/lib_hxgnavbar.iml" />
     </modules>
