@@ -11,7 +11,7 @@ allprojects {
 }
 
 dependencies {
-	implementation 'com.github.huangxiaoguo1:hxgnavigationbar:1.0.1'
+	implementation 'com.github.huangxiaoguo1:hxgnavigationbar:1.0.2'
 }
 ```
 
@@ -53,6 +53,11 @@ setContentView(R.layout.activity_titlebar)
 setTitle(R.id.title_text, "我是标题")
 
 setTitle(R.id.right_text, R.string.test_1)
+```
+##### 设置View的显示和隐藏
+
+```
+setShowView(int viewId, Boolean aBoolean) 
 ```
 ###### 设置图片
 
