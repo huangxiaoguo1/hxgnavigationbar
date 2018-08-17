@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 .setOnFinishClickListener(R.id.top_back)
                 .setImage(R.id.image_btn, R.mipmap.ic_launcher_round)
                 .setImage(R.id.image, R.mipmap.ic_launcher_round)
+                .setShowView(R.id.image_btn,false)
                 .setOnClickListener(R.id.right_text, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

@@ -43,6 +43,10 @@ public class DefaultNavigationBar extends AbsNavgationBar<DefaultNavigationBar.B
         for (int i = 0; i < getParams().mTextArray.size(); i++) {
             viewHelper.setText(getParams().mTextArray.keyAt(i), getParams().mTextArray.valueAt(i));
         }
+        //设置View的显示和隐藏
+        for (int i = 0; i < getParams().mTextShowArray.size(); i++) {
+            viewHelper.setShowView(getParams().mTextShowArray.keyAt(i), getParams().mTextShowArray.valueAt(i));
+        }
         //设置点击事件
         for (int i = 0; i < getParams().mClickArray.size(); i++) {
             viewHelper.setOnClickListener(getParams().mClickArray.keyAt(i), getParams().mClickArray.valueAt(i));
@@ -107,6 +111,11 @@ public class DefaultNavigationBar extends AbsNavgationBar<DefaultNavigationBar.B
             P.mTextArray.put(viewId, P.mContext.getString(textResId));
             return this;
         }
+        //设置View的显示和隐藏
+        public Builder setShowView(int viewId, boolean isShow) {
+            P.mTextShowArray.put(viewId, isShow);
+            return this;
+        }
         //设置图片
         public Builder setImage(int viewId,int imageResId){
             P.mImageArray.put(viewId,imageResId);
@@ -132,6 +141,8 @@ public class DefaultNavigationBar extends AbsNavgationBar<DefaultNavigationBar.B
             public int mLayoutId = 0;
             //存放字体的修改
             public SparseArray<CharSequence> mTextArray = new SparseArray<>();
+            //设置View的显示和隐藏
+            public SparseArray<Boolean> mTextShowArray = new SparseArray<>();
             //存放点击事件
             public SparseArray<View.OnClickListener> mClickArray = new SparseArray<>();
             //点击关闭

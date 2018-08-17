@@ -42,6 +42,23 @@ public class DefauleNavigationViewHelper {
         }
     }
 
+    /**
+     * 设置View的显示和隐藏
+     *
+     * @param viewId
+     * @param aBoolean
+     */
+    public void setShowView(int viewId, Boolean aBoolean) {
+        View view = getView(viewId);
+        if (view != null) {
+            if (aBoolean) {
+                view.setVisibility(View.VISIBLE);
+            } else {
+                view.setVisibility(View.GONE);
+            }
+        }
+    }
+
     public <T extends View> T getView(int viewId) {
         WeakReference<View> weakReference = mViews.get(viewId);
         View view = null;
@@ -78,15 +95,16 @@ public class DefauleNavigationViewHelper {
 
     /**
      * 点击关闭
+     *
      * @param viewId
      */
-    public void setOnFinishClickListener(int viewId){
+    public void setOnFinishClickListener(int viewId) {
         View view = getView(viewId);
         if (view != null) {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ((Activity)mContext).finish();
+                    ((Activity) mContext).finish();
                 }
             });
         }
@@ -94,6 +112,7 @@ public class DefauleNavigationViewHelper {
 
     /**
      * 设置图片
+     *
      * @param viewId
      * @param imageResId
      */
@@ -103,4 +122,6 @@ public class DefauleNavigationViewHelper {
             view.setImageResource(imageResId);
         }
     }
+
+
 }
