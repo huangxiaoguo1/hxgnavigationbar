@@ -11,7 +11,7 @@ allprojects {
 }
 
 dependencies {
-	implementation 'com.github.huangxiaoguo1:hxgnavigationbar:1.0.2'
+	implementation 'com.github.huangxiaoguo1:hxgnavigationbar:1.0.3'
 }
 ```
 
@@ -58,6 +58,11 @@ setTitle(R.id.right_text, R.string.test_1)
 
 ```
 setShowView(int viewId, Boolean aBoolean) 
+```
+##### 设置View的颜色
+
+```
+setTextColor(int viewId, int color)
 ```
 ###### 设置图片
 
