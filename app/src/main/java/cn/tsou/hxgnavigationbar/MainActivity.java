@@ -6,11 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import cn.tsou.lib_hxgnavbar.DefaultNavigationBar;
-
-import static cn.tsou.hxgnavigationbar.R.attr.title;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,11 +19,12 @@ public class MainActivity extends AppCompatActivity {
         DefaultNavigationBar build = new DefaultNavigationBar.Builder(this)
                 .setContentView(R.layout.activity_titlebar)
                 .setTitle(R.id.title_text, "我是标题")
+                .setTextColor(R.id.right_text, R.color.colorPrimary)
                 .setTitle(R.id.right_text, R.string.test_1)
                 .setOnFinishClickListener(R.id.top_back)
                 .setImage(R.id.image_btn, R.mipmap.ic_launcher_round)
                 .setImage(R.id.image, R.mipmap.ic_launcher_round)
-                .setShowView(R.id.image_btn,false)
+                .setShowView(R.id.image_btn, false)
                 .setOnClickListener(R.id.right_text, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

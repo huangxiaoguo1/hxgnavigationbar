@@ -28,17 +28,18 @@ public class DefaultNavigationBar extends AbsNavgationBar<DefaultNavigationBar.B
 
     /**
      * 获得view对象
+     *
      * @param viewId
      * @param <T>
      * @return
      */
-    public <T extends View> T getView(int viewId){
+    public <T extends View> T getView(int viewId) {
         return viewHelper.getView(viewId);
     }
 
     @Override
     public void applyView() {
-        viewHelper = new DefauleNavigationViewHelper(getParams().mContext,getParams().mParent);
+        viewHelper = new DefauleNavigationViewHelper(getParams().mContext, getParams().mParent);
         //设置内容
         for (int i = 0; i < getParams().mTextArray.size(); i++) {
             viewHelper.setText(getParams().mTextArray.keyAt(i), getParams().mTextArray.valueAt(i));
@@ -46,6 +47,10 @@ public class DefaultNavigationBar extends AbsNavgationBar<DefaultNavigationBar.B
         //设置View的显示和隐藏
         for (int i = 0; i < getParams().mTextShowArray.size(); i++) {
             viewHelper.setShowView(getParams().mTextShowArray.keyAt(i), getParams().mTextShowArray.valueAt(i));
+        }
+        //设置View的显示和隐藏
+        for (int i = 0; i < getParams().mTextColor.size(); i++) {
+            viewHelper.setTextColor(getParams().mTextColor.keyAt(i), getParams().mTextColor.valueAt(i));
         }
         //设置点击事件
         for (int i = 0; i < getParams().mClickArray.size(); i++) {
@@ -57,7 +62,7 @@ public class DefaultNavigationBar extends AbsNavgationBar<DefaultNavigationBar.B
         }
         //设置图片
         for (int i = 0; i < getParams().mImageArray.size(); i++) {
-            viewHelper.setImage(getParams().mImageArray.keyAt(i),getParams().mImageArray.valueAt(i));
+            viewHelper.setImage(getParams().mImageArray.keyAt(i), getParams().mImageArray.valueAt(i));
         }
 
     }
@@ -106,19 +111,28 @@ public class DefaultNavigationBar extends AbsNavgationBar<DefaultNavigationBar.B
             P.mTextArray.put(viewId, text);
             return this;
         }
+
         //设置标题
         public Builder setTitle(int viewId, int textResId) {
             P.mTextArray.put(viewId, P.mContext.getString(textResId));
             return this;
         }
+
         //设置View的显示和隐藏
         public Builder setShowView(int viewId, boolean isShow) {
             P.mTextShowArray.put(viewId, isShow);
             return this;
         }
+
+        //设置View颜色
+        public Builder setTextColor(int viewId, int color) {
+            P.mTextColor.put(viewId, color);
+            return this;
+        }
+
         //设置图片
-        public Builder setImage(int viewId,int imageResId){
-            P.mImageArray.put(viewId,imageResId);
+        public Builder setImage(int viewId, int imageResId) {
+            P.mImageArray.put(viewId, imageResId);
             return this;
         }
 
@@ -143,12 +157,14 @@ public class DefaultNavigationBar extends AbsNavgationBar<DefaultNavigationBar.B
             public SparseArray<CharSequence> mTextArray = new SparseArray<>();
             //设置View的显示和隐藏
             public SparseArray<Boolean> mTextShowArray = new SparseArray<>();
+            //设置View的颜色
+            public SparseArray<Integer> mTextColor = new SparseArray<>();
             //存放点击事件
             public SparseArray<View.OnClickListener> mClickArray = new SparseArray<>();
             //点击关闭
-            public ArrayList<Integer> mFinishClickArray=new ArrayList();
+            public ArrayList<Integer> mFinishClickArray = new ArrayList();
             //设置图片
-            public SparseArray<Integer> mImageArray=new SparseArray();
+            public SparseArray<Integer> mImageArray = new SparseArray();
 
             //所有效果
             public DefaultNavigationParams(Context context, ViewGroup parent) {

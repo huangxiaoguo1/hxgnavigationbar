@@ -59,6 +59,13 @@ public class DefauleNavigationViewHelper {
         }
     }
 
+    public void setTextColor(int viewId, Integer color) {
+        TextView view = getView(viewId);
+        if (view != null) {
+            view.setTextColor(color);
+        }
+    }
+
     public <T extends View> T getView(int viewId) {
         WeakReference<View> weakReference = mViews.get(viewId);
         View view = null;
