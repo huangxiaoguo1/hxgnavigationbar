@@ -11,7 +11,7 @@ allprojects {
 }
 
 dependencies {
-	implementation 'com.github.huangxiaoguo1:hxgnavigationbar:1.0.3'
+	implementation 'com.github.huangxiaoguo1:hxgnavigationbar:1.0.4'
 }
 ```
 
@@ -23,20 +23,24 @@ dependencies {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DefaultNavigationBar build = new DefaultNavigationBar.Builder(this)
-                .setContentView(R.layout.activity_titlebar)
-                .setTitle(R.id.title_text, "我是标题")
-                .setTitle(R.id.right_text, R.string.test_1)
-                .setOnFinishClickListener(R.id.top_back)
-                .setImage(R.id.image_btn, R.mipmap.ic_launcher_round)
-                .setImage(R.id.image, R.mipmap.ic_launcher_round)
-                .setOnClickListener(R.id.right_text, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(MainActivity.this, "点击了右边", Toast.LENGTH_LONG).show();
-                        title.setText("点击改变");
-                    }
-                })
-                .build();
+                        .setContentView(R.layout.activity_titlebar)
+                        .setShowStatusBar(true)
+                        .setStatusBarColor(R.color.red)
+                        .setTitle(R.id.title_text, "我是标题")
+                        .setTextColor(R.id.right_text, R.color.colorPrimary)
+                        .setTitle(R.id.right_text, R.string.test_1)
+                        .setOnFinishClickListener(R.id.top_back)
+                        .setImage(R.id.image_btn, R.mipmap.ic_launcher_round)
+                        .setImage(R.id.image, R.mipmap.ic_launcher_round)
+                        .setShowView(R.id.image_btn, false)
+                        .setOnClickListener(R.id.right_text, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(MainActivity.this, "点击了右边", Toast.LENGTH_LONG).show();
+                                title.setText("点击改变");
+                            }
+                        })
+                        .build();
         title = build.getView(R.id.title_text);
     }
 ```
@@ -46,7 +50,11 @@ dependencies {
 ```
 setContentView(R.layout.activity_titlebar)
 ```
-
+###### 设置显示顶部状态栏高度的View
+```text
+setShowStatusBar(true)
+setStatusBarColor(R.color.red)
+```
 ##### 设置内容
 
 ```
