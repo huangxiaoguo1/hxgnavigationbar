@@ -2,14 +2,9 @@ package cn.tsou.lib_hxgnavbar;
 
 import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import java.lang.ref.WeakReference;
 
 /**
  * Created by 黄家三少 on 2018/7/5.
@@ -37,7 +32,7 @@ public abstract class AbsNavgationBar<T extends AbsNavgationBar.Builder.AbsNavig
      * 绑定和创建View
      */
     private void createAndBindView() {
-        if (bindLayoutId() == 0) {
+        if (bindLayoutId() == 0 && !addShowStatusBar()) {
             throw new IllegalArgumentException("请先传入布局—>setContentView方法");
         }
         if (mParams.mParent == null) {
@@ -59,10 +54,18 @@ public abstract class AbsNavgationBar<T extends AbsNavgationBar.Builder.AbsNavig
         if (mParams.mParent == null) {
             return;
         }
-        View navigationView = LayoutInflater.from(mParams.mContext)
-                .inflate(bindLayoutId(), mParams.mParent, false);
-        //添加到页面布局根部
-        mParams.mParent.addView(navigationView, 0);
+        if (bindLayoutId() != 0) {
+            View navigationView = LayoutInflater.from(mParams.mContext)
+                    .inflate(bindLayoutId(), mParams.mParent, false);
+            //添加到页面布局根部
+            mParams.mParent.addView(navigationView, 0);
+        }
+        if (addShowStatusBar()) {
+            View navigationView = LayoutInflater.from(mParams.mContext)
+                    .inflate(R.layout.activity_statusbar_titlebar, mParams.mParent, false);
+            //添加到页面布局根部
+            mParams.mParent.addView(navigationView, 0);
+        }
         applyView();
     }
 

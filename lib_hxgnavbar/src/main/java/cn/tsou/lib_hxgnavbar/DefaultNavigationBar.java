@@ -26,6 +26,11 @@ public class DefaultNavigationBar extends AbsNavgationBar<DefaultNavigationBar.B
         return getParams().mLayoutId;
     }
 
+    @Override
+    public boolean addShowStatusBar() {
+        return getParams().mStatusBar;
+    }
+
     /**
      * 获得view对象
      *
@@ -64,7 +69,10 @@ public class DefaultNavigationBar extends AbsNavgationBar<DefaultNavigationBar.B
         for (int i = 0; i < getParams().mImageArray.size(); i++) {
             viewHelper.setImage(getParams().mImageArray.keyAt(i), getParams().mImageArray.valueAt(i));
         }
-
+        //设置顶部状态栏
+        if (getParams().mStatusBar) {
+            viewHelper.setStatusBar(R.id.view_statusbar, getParams().mStatusBarColor);
+        }
     }
 
 
@@ -100,6 +108,28 @@ public class DefaultNavigationBar extends AbsNavgationBar<DefaultNavigationBar.B
          */
         public Builder setContentView(int layoutId) {
             P.mLayoutId = layoutId;
+            return this;
+        }
+
+        /**
+         * 是否显示顶部状态栏
+         *
+         * @param isShowStatusBar
+         * @return
+         */
+        public Builder setShowStatusBar(boolean isShowStatusBar) {
+            P.mStatusBar = isShowStatusBar;
+            return this;
+        }
+
+        /**
+         * 设置顶部状态栏的颜色
+         *
+         * @param color
+         * @return
+         */
+        public Builder setStatusBarColor(int color) {
+            P.mStatusBarColor = color;
             return this;
         }
 
@@ -153,6 +183,8 @@ public class DefaultNavigationBar extends AbsNavgationBar<DefaultNavigationBar.B
              * 放置参数
              */
             public int mLayoutId = 0;
+            public boolean mStatusBar = false;
+            public int mStatusBarColor = android.R.color.white;
             //存放字体的修改
             public SparseArray<CharSequence> mTextArray = new SparseArray<>();
             //设置View的显示和隐藏

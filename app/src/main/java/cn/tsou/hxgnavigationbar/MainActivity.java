@@ -16,8 +16,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        StatusBarUtil.setStatusBarTranslucent(this, false);
         DefaultNavigationBar build = new DefaultNavigationBar.Builder(this)
                 .setContentView(R.layout.activity_titlebar)
+                .setShowStatusBar(true)
+                .setStatusBarColor(R.color.red)
                 .setTitle(R.id.title_text, "我是标题")
                 .setTextColor(R.id.right_text, R.color.colorPrimary)
                 .setTitle(R.id.right_text, R.string.test_1)

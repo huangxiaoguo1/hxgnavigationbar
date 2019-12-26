@@ -7,12 +7,20 @@ package cn.tsou.lib_hxgnavbar;
 public interface INavgationBar {
     /**
      * 头部布局
+     *
      * @return
      */
-    public int bindLayoutId();
+    int bindLayoutId();
+
+    /**
+     * 显示顶部导航栏
+     *
+     * @return
+     */
+    boolean addShowStatusBar();
 
     /**
      * 绑定头部的参数
      */
-    public void applyView();
+    void applyView();
 }

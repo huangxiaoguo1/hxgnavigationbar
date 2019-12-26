@@ -6,10 +6,13 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
+
+import cn.tsou.lib_hxgnavbar.utils.StatusBarUtil;
 
 /**
  * Created by 黄家三少 on 2018/7/7.
@@ -130,5 +133,19 @@ public class DefauleNavigationViewHelper {
         }
     }
 
-
+    /**
+     * 设置顶部状态栏的颜色
+     *
+     * @param viewId
+     * @param mStatusBarColor
+     */
+    public void setStatusBar(int viewId, int mStatusBarColor) {
+        View view = getView(viewId);
+        if (view != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
+            layoutParams.height = StatusBarUtil.getStatusBarHeight(view.getContext());
+            view.setLayoutParams(layoutParams);
+            view.setBackgroundColor(view.getContext().getResources().getColor(mStatusBarColor));
+        }
+    }
 }
