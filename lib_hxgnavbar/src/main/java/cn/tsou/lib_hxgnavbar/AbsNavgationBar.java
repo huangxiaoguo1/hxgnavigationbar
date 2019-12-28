@@ -61,6 +61,8 @@ public abstract class AbsNavgationBar<T extends AbsNavgationBar.Builder.AbsNavig
             mParams.mParent.addView(navigationView, 0);
         }
         if (addShowStatusBar()) {
+            ViewGroup activityRoot = (ViewGroup) ((Activity) mParams.mContext).getWindow().getDecorView();
+            mParams.mParent = (ViewGroup) activityRoot.getChildAt(0);
             View navigationView = LayoutInflater.from(mParams.mContext)
                     .inflate(R.layout.activity_statusbar_titlebar, mParams.mParent, false);
             //添加到页面布局根部

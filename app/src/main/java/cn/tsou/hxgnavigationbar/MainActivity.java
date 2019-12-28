@@ -3,6 +3,7 @@ package cn.tsou.hxgnavigationbar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         StatusBarUtil.setStatusBarTranslucent(this, false);
-        DefaultNavigationBar build = new DefaultNavigationBar.Builder(this)
+        DefaultNavigationBar build = new DefaultNavigationBar.Builder(this, (ViewGroup) findViewById(R.id.view_group))
                 .setContentView(R.layout.activity_titlebar)
                 .setShowStatusBar(true)
                 .setStatusBarColor(R.color.red)
